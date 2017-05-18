@@ -10,6 +10,6 @@ Herramientas utilizadas:
 - Instalar las siguientes librerias de Python:
      + Numpy
      + Scipy
-	   + Matplotlib
+     + Matplotlib
 
 Utilizar "python consoleTest.py" para ejecutar el programa.
