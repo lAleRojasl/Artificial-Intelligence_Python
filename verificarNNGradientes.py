@@ -21,11 +21,11 @@ def verificarNNGradientes(lmbda=0):
 
 	def costFunc(p):
 		return nnFuncionCosto(p, input_layer_size, hidden_layer_size, num_labels,
-				      x, y, lmbda)
+				      x, y, lmbda, False)
 
    	def gradFunc(p):
 		return nnFuncionGradiente(p, input_layer_size, hidden_layer_size, num_labels,
-				         x, y, lmbda)
+				         x, y, lmbda, False)
 
 	grad = gradFunc(nn_params)
 	numgrad = gradientChecking(costFunc, nn_params)

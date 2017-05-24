@@ -6,16 +6,14 @@ from sigmoidGradient import sigmoidGradient
 from verificarNNGradientes import verificarNNGradientes
 from trainer import trainer
 from predecir import predecir
-from predecir2 import predecir2
 import numpy as np
 import scipy
-#import matcompat
 import scipy.io
 import matplotlib.pylab as plt
 # =========== Inicializacion ==================
 # ------------- Variables ---------------------
 inputL_size  = 784  # Entradas: Imagenes 28x28
-hiddenL_size = 25   # Capas escondidas: definidas pswor usuario (default 25)
+hiddenL_size = 25   # Capas escondidas: definidas por usuario (default 25)
 outputL_size = 10   # Salidas: 10 posibles numeros (salida[0] es el 10)
 
 # --------------- Clases ----------------------
@@ -63,7 +61,7 @@ print("\n ======= Parte 3: Calcular Costo (Feedfoward) =======")
 print("Feedforward usando Redes Neuronales...")
 
 lmbda = 0
-J = funCost(initial_nn_params, inputL_size, hiddenL_size, outputL_size, trainImg, trainLabel, lmbda)
+J = funCost(initial_nn_params, inputL_size, hiddenL_size, outputL_size, trainImg, trainLabel, lmbda, False)
 
 print("Costo inicial (J): "+str(J))
 raw_input("Presione ENTER para continuar...\n")

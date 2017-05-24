@@ -2,7 +2,7 @@ import numpy as np
 import sys
 from scipy.optimize import fmin_cg
 from calcWeights import calcWeights
-from nnFuncionCosto import nnFuncionCosto, nnFuncionGradiente
+from nnFuncionCosto import nnFuncionCosto, nnFuncionGradiente, resetIterations
 
 def trainer(initial_nn_params,x, y, inputL_size, hiddenL_size, outputL_size):
 
@@ -10,9 +10,11 @@ def trainer(initial_nn_params,x, y, inputL_size, hiddenL_size, outputL_size):
 
     _lambda = 0.01
     max_iterations = 50
-    iterations_counter = dict(val=0)
+    iterations_counter = dict(val=0)	
+    resetIterations()
 
     def show_progress(current_x):
+	print("CURRENT X: "+str(current_x))
         iterations_counter['val'] += 1
         progress = iterations_counter['val'] * 100 // max_iterations
 	
@@ -26,10 +28,10 @@ def trainer(initial_nn_params,x, y, inputL_size, hiddenL_size, outputL_size):
     nn_params = fmin_cg(
         nnFuncionCosto,
         x0=initial_nn_params,
-        args=(inputL_size, hiddenL_size, outputL_size, x, y, _lambda),
+        args=(inputL_size, hiddenL_size, outputL_size, x, y, _lambda, True),
 	fprime=nnFuncionGradiente,
         maxiter=max_iterations,
-        callback=show_progress
+        #callback=show_progress
     )
 
     theta1, theta2 = calcW.unroll_thetas(nn_params, inputL_size, hiddenL_size, outputL_size)

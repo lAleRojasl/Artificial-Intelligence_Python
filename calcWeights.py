@@ -27,7 +27,6 @@ class calcWeights(object):
 		theta2 = self.randInitWeights(self.hiddenL_size, self.outputL_size)
 		print('Theta2 creado! Dimensiones: '+str(np.shape(theta2)))
 		sio.savemat('Weights.mat',{'Theta1':theta1, 'Theta2':theta2})
-		print('Archivo Weights.Mat guardado existosamente! ')
 
 	# Metodo para generar aleatorios (definido por epsilon)
 	@classmethod
@@ -46,9 +45,9 @@ class calcWeights(object):
 	# Metodo para setear nuevos valores
 	@classmethod
 	def setNewValues(cls, inputL, hiddenL, outputL):
-		self.inputL_size = inputL
-		self.hiddenL_size = hiddenL
-		self.outputL_size = outputL
+		cls.inputL_size = inputL
+		cls.hiddenL_size = hiddenL
+		cls.outputL_size = outputL
 
 	@classmethod
 	def unroll_thetas(cls, nn_params, input_layer_size, hidden_layer_size, num_labels):

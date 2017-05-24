@@ -4,7 +4,18 @@ import matplotlib.pylab as plt
 from scipy.special import expit
 from sigmoidGradient import sigmoidGradient
 from calcWeights import calcWeights as calcW
+import csv
 
+iteracion = 0
+finalError = 0
+
+def resetIterations():
+	global iteracion
+	iteracion = 0
+
+def getFinalError():
+	global finalError
+	return finalError
 
 def feedForward(Theta1, Theta2, trainImg):
 	#Variables
@@ -25,7 +36,8 @@ def feedForward(Theta1, Theta2, trainImg):
 	return A1,A2,A3,Z2,Z3
 
 def nnFuncionCosto(nn_params,inputL_size, hiddenL_size,
-		   outputL_size, trainImg, trainLabel, lmbda):
+		   outputL_size, trainImg, trainLabel, lmbda, saveData):
+	global iteracion, finalError
 	#Variables
 	m = np.shape(trainImg)[0]
 
@@ -50,12 +62,18 @@ def nnFuncionCosto(nn_params,inputL_size, hiddenL_size,
 
 	# Funcion de costo con regularizacion
     	J = J+P
-	#print("new cost: "+str(J))
-	#print("Regularizacion (P):"+str(P))
+	finalError = J
+	iteracion = iteracion + 1
+	if(saveData == True):
+		if(iteracion % 2 != 0):
+			with open('costPerIter.csv', 'a') as csvfile:
+	   			spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+	    			spamwriter.writerow([iteracion, str(J)])
 	return J
 
+
 def nnFuncionGradiente(nn_params, inputL_size, hiddenL_size, outputL_size, 
-		       trainImg, trainLabel, lmbda):
+		       trainImg, trainLabel, lmbda, saveData):
 
 	#Variables
 	m = np.shape(trainImg)[0]
