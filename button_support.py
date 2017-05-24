@@ -196,13 +196,15 @@ def funcionCosto():
 	InsertInLog("--> Valor J: "+str(J)+"\n")
 	
 
-def CalcSigmoidGrad(self):	
-	Samples = int(TrainSamplesVar.get())
-	temptrainImg = np.asarray(trainImg[:Samples])
-	temptrainImg = np.divide(temptrainImg, 255.)
-	temptrainLabel = np.asarray(trainLabel[:Samples])
-	InsertInLog(str(temptrainLabel))
-	print("CALC SIG GRAD")
+def CalcSigmoidGrad(self):
+	grad,numgrad = verificarNNGradientes()
+	InsertInLog('\n\nVerificando NN Gradientes:\n')
+	for i in range(len(grad)):
+		InsertInLog(str(numgrad[i])+" <--> "+str(grad[i])+"\n")
+
+	diff = np.linalg.norm(numgrad-grad) / np.linalg.norm(numgrad+grad)
+	
+	InsertInLog("\n\nDiferencia relativa (debe ser menor a 1e-9) : "+ str(diff)+"\n")
 
 def TrainingStart(self):
 	global trainImg, trainLabel
@@ -267,7 +269,7 @@ def SaveData(self):
 	finalError = getFinalError()
 	with open('results.csv', 'a') as csvfile:
 	   	spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-	    	spamwriter.writerow([Samples, hiddenL_size, lmbdaTrain, finalError, trainPrcnt, validPrcnt,iterations_counter['val'], TestAccuracy])
+	    	spamwriter.writerow([Samples, hiddenL_size, lmbdaTrain, trainPrcnt, validPrcnt,iterations_counter['val'], finalError, TestAccuracy])
 		InsertInLog("\n\nResultados guardados en results.csv!\n")
 
 def ClearLog(self):

@@ -29,12 +29,6 @@ def verificarNNGradientes(lmbda=0):
 
 	grad = gradFunc(nn_params)
 	numgrad = gradientChecking(costFunc, nn_params)
-
-	print('Gradientes:')
-	for i in range(len(grad)):
-		print(numgrad[i],grad[i])
-
-	diff = np.linalg.norm(numgrad-grad) / np.linalg.norm(numgrad+grad)
 	
-	print('\nDiferencia relativa (debe ser menor a 1e-9) : '+ str(diff))
+	return grad,numgrad
 

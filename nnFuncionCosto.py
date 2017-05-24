@@ -68,7 +68,7 @@ def nnFuncionCosto(nn_params,inputL_size, hiddenL_size,
 		if(iteracion % 2 != 0):
 			with open('costPerIter.csv', 'a') as csvfile:
 	   			spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-	    			spamwriter.writerow([iteracion, str(J)])
+	    			spamwriter.writerow([str(iteracion/2), str(J*1000)])
 	return J
 
 
