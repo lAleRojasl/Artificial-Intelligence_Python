@@ -231,12 +231,6 @@ class NeuralNetwork_IA:
         self.Label9.configure(highlightbackground="#b9d9d9")
         self.Label9.configure(text='Lambda:')
 
-        self.Label16 = Label(top)
-        self.Label16.place(relx=0.32, rely=0.52, height=28, width=66)
-        self.Label16.configure(activebackground="#f9f9f9")
-        self.Label16.configure(background="#7cbcff")
-        self.Label16.configure(highlightbackground="#b9d9d9")
-        self.Label16.configure(text='Lambda:')
 
         self.Label14 = Label(top)
         self.Label14.place(relx=0.3, rely=0.2, height=26, width=84)
@@ -276,11 +270,11 @@ class NeuralNetwork_IA:
         self.Label8.configure(text='Costo Inicial')
 
         self.Label10 = Label(top)
-        self.Label10.place(relx=0.04, rely=0.52, height=28, width=126)
+        self.Label10.place(relx=0.04, rely=0.52, height=40, width=150)
         self.Label10.configure(activebackground="#f9f9f9")
         self.Label10.configure(background="#498bff")
         self.Label10.configure(highlightbackground="#b9d9d9")
-        self.Label10.configure(text='Gradiente Sigmoide')
+        self.Label10.configure(text='Verificar NN Gradiente')
 
         self.Label11 = Label(top)
         self.Label11.place(relx=0.20, rely=0.38, height=28, width=100)
@@ -288,13 +282,6 @@ class NeuralNetwork_IA:
         self.Label11.configure(background="#6063ff")
         self.Label11.configure(highlightbackground="#b9d9d9")
         self.Label11.configure(text='Regularizacion')
-
-        self.Label17 = Label(top)
-        self.Label17.place(relx=0.20, rely=0.52, height=28, width=100)
-        self.Label17.configure(activebackground="#f9f9f9")
-        self.Label17.configure(background="#6063ff")
-        self.Label17.configure(highlightbackground="#b9d9d9")
-        self.Label17.configure(text='Regularizacion')
 
         self.VarLabel3 = Label(top)
         self.VarLabel3.place(relx=0.04, rely=0.65, height=28, width=390)
@@ -397,11 +384,11 @@ class NeuralNetwork_IA:
         self.CalcCostoButton1.bind('<ButtonRelease-1>',button_support.CalcCost)
 
         self.SigGradButton1 = Button(top)
-        self.SigGradButton1.place(relx=0.4, rely=0.58, height=27, width=85)
+        self.SigGradButton1.place(relx=0.30, rely=0.52, height=35, width=150)
         self.SigGradButton1.configure(activebackground="#09d8f9")
         self.SigGradButton1.configure(background="#49c4ff")
         self.SigGradButton1.configure(highlightbackground="#09d8f9")
-        self.SigGradButton1.configure(text='Calcular')
+        self.SigGradButton1.configure(text='Verificar')
         self.SigGradButton1.configure(width=85)
         self.SigGradButton1.bind('<ButtonRelease-1>',button_support.CalcSigmoidGrad)
 
@@ -459,20 +446,6 @@ class NeuralNetwork_IA:
         self.CostoLambdaEntry1.configure(selectbackground="#c4c4c4")
         self.CostoLambdaEntry1.configure(textvariable=button_support.CostoLmbdaEntryVar)
 
-        self.GSLambdaEntry1 = Entry(top)
-        self.GSLambdaEntry1.place(relx=0.4, rely=0.52, relheight=0.04
-                , relwidth=0.1)
-        self.GSLambdaEntry1.configure(background="white")
-        self.GSLambdaEntry1.configure(font="TkFixedFont")
-        self.GSLambdaEntry1.configure(selectbackground="#c4c4c4")
-        self.GSLambdaEntry1.configure(textvariable=button_support.GSLambdaEntryVar)
-
-        self.SGEntry1 = Entry(top)
-        self.SGEntry1.place(relx=0.04, rely=0.58, relheight=0.04, relwidth=0.358)
-        self.SGEntry1.configure(background="white")
-        self.SGEntry1.configure(font="TkFixedFont")
-        self.SGEntry1.configure(selectbackground="#c4c4c4")
-        self.SGEntry1.configure(textvariable=button_support.SGEntryVar)
 
         self.TrainLambdaEntry1 = Entry(top)
         self.TrainLambdaEntry1.place(relx=0.145, rely=0.7, relheight=0.04
