@@ -1,19 +1,18 @@
-1) Asegurarse que tiene instalado python 2.7 en la maquina (estoy usando ubuntu 16.04)
+1) Instalar python 2.7 en la maquina (preferiblemente Ubuntu 16.04)
 
 
-2) Instalar estos paquetes:
+2) Instalar los siguientes paquetes:
 	
 	sudo apt-get install python-numpy
 	
 	sudo apt-get install python-matplotlib
 
 
-3) Abrir una terminal en la carpeta donde estan los archivos.
+3) Abrir una terminal en la carpeta donde se ubican los archivos.
 
 
 4) Ejecutar el programa con: 
 	
 	python plotNumber.py
 
-4.1) Puede que salga un warning la primera vez que lo corra diciendo algo de
-construyendo cache y puede que dure un rato pero solo es una vez.
+4.1) La primera vez se mostrará un warning mencionando construcción de cache y puede tardar unos momentos, solo ocurre una vez.
